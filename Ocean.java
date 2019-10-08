@@ -23,20 +23,38 @@ public class Ocean {
         Square[] shipElements = new Square[length];
         int x = coordinates[0];
         int y = coordinates[1];
-        if(isHorizontal){
-            for(int i = 0; i < length; i++){
-                shipElements[i] = board[x][y+i];
-            }
-        }
-        else {
-            for(int i = 0; i < length; i++){
-                shipElements[i] = board[x+i][y];
-            }
-        }
+        
+        if(isHorizontal)
+            createHorizontalShip(x, y, length, shipElements);
+        else
+            createVerticalShip(x, y, length, shipElements);
         Ship ship = new Ship(shipElements);
         ships.add(ship);
     }
 
+    private void createHorizontalShip(int x, int y, int length, Square[] shipElements) {
+        try{
+            for(int i = 0; i < length; i++){
+                shipElements[i] = board[x][y+i];
+            }
+        } catch(ArrayIndexOutOfBoundsException e){
+            for(int i = 0; i < length; i++){
+                shipElements[i] = board[x][y-i];
+            }
+        }
+    }
+
+    private void createVerticalShip(int x, int y, int length, Square[] shipElements) {
+        try{
+            for(int i = 0; i < length; i++){
+                shipElements[i] = board[x+i][y];
+            }
+        } catch(ArrayIndexOutOfBoundsException e){
+            for(int i = 0; i < length; i++){
+                shipElements[i] = board[x-i][y];
+            }
+        }
+    }
 
     public void printBoard(){
         printYAxis();
