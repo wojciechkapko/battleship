@@ -19,8 +19,10 @@ public class Ocean {
         }
     }
 
-    public void addShip(int x, int y, int length, boolean isHorizontal){
+    public void addShip(int[] coordinates, int length, boolean isHorizontal){
         Square[] shipElements = new Square[length];
+        int x = coordinates[0];
+        int y = coordinates[1];
         if(isHorizontal){
             for(int i = 0; i < length; i++){
                 shipElements[i] = board[x][y+i];

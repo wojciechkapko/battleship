@@ -1,7 +1,6 @@
 public class Main{
     public static void main(String[] args){
-        Ocean ocean = new Ocean();
-        ocean.addShip(1, 2, 2, true);
-        ocean.printBoard();
+        Player player1 = new Player();
+        Player player2 = new Player();
     }
 }
