@@ -3,12 +3,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Player{
-    private Ocean oponentOcean;
-    private Ocean myOcean;
+    private Ocean opponentOcean;
+    private Ocean ocean;
     Scanner scanner = new Scanner(System.in);
+    
     Player(){
-        oponentOcean = new Ocean();
-        myOcean = new Ocean();
+        opponentOcean = new Ocean();
+        ocean = new Ocean();
         createShips();
     }
     public int[] getCooridinates(){
@@ -39,10 +40,10 @@ public class Player{
         shipTypes.put("Cruiser", 3);
         shipTypes.put("Submarine", 3);
         shipTypes.put("Destroyer", 2);
-        myOcean.printBoard();
+        ocean.printBoard();
         for(String shipType: shipTypes.keySet()){
             createSingleShip(shipType, shipTypes);
-            myOcean.printBoard();
+            ocean.printBoard();
         }
     }
 
@@ -50,6 +51,14 @@ public class Player{
         System.out.println("Creating " + shipType);
         int[] coordinates = getCooridinates();
         boolean position = getisHorizontal();
-        myOcean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+        ocean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+    }
+
+    public Ocean getOcean(){
+        return ocean;
+    }
+
+    public void setOpponentOcean(Ocean opponentOcean){
+        this.opponentOcean = opponentOcean;
     }
 }
