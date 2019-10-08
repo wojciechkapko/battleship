@@ -1,6 +1,11 @@
 public class Main{
     public static void main(String[] args){
-        Player player1 = new Player();
-        Player player2 = new Player();
+        // var player1 = new Player();
+        Player humanPlayer = new HumanPlayer();
+        AiPlayer aiPlayer = new AiPlayer();
+        humanPlayer.getOcean().printBoard();
+        aiPlayer.getOcean().printBoard();
+        // player1.setOpponentOcean(aiPlayer.getOcean());
+        // aiPlayer.setOpponentOcean(player1.getOcean());
     }
 }
