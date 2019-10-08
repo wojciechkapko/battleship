@@ -39,15 +39,17 @@ public class Player{
         shipTypes.put("Cruiser", 3);
         shipTypes.put("Submarine", 3);
         shipTypes.put("Destroyer", 2);
+        myOcean.printBoard();
         for(String shipType: shipTypes.keySet()){
-            myOcean.printBoard();
-            System.out.println("Creating " + shipType);
-            int[] coordinates = getCooridinates();
-            boolean position = getisHorizontal();
-            myOcean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+            createSingleShip(shipType, shipTypes);
             myOcean.printBoard();
         }
     }
 
-
+    private void createSingleShip(String shipType, Map<String, Integer> shipTypes){
+        System.out.println("Creating " + shipType);
+        int[] coordinates = getCooridinates();
+        boolean position = getisHorizontal();
+        myOcean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+    }
 }
