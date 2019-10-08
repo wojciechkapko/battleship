@@ -39,12 +39,29 @@ public class Ocean {
 
 
     public void printBoard(){
+        printYAxis();
         for(int x = 0; x < boardLimit; x++){
+            printXAxis(x);
             for(int y = 0; y < boardLimit; y++){
                 Square boardSquare = board[x][y];
                 System.out.print(boardSquare);
             }
             System.out.print("\n");
         }
+        System.out.println("");
+        System.out.println("x");
+        System.out.println("");
+    }
+
+    private void printXAxis(int x){
+        if (x + 1 == 10)
+            System.out.print(x+1 + " ");
+        else 
+            System.out.print(x+1 + "  ");
+    }
+
+    private void printYAxis(){
+        System.out.println("  " + "  1  2  3  4  5  6  7  8  9  10  " + "y");
+        System.out.println("");
     }
 }
