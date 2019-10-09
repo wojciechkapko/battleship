@@ -5,16 +5,16 @@ public class Main{
         AiPlayer aiPlayer = new AiPlayer();
         // humanPlayer.getOcean().printBoard();
         // aiPlayer.getOcean().printBoard();
-        humanPlayer.setOpponentOcean(aiPlayer.getOpponentBoard());
-        aiPlayer.setOpponentOcean(humanPlayer.getOpponentBoard());
+        humanPlayer.setOpponentOcean(aiPlayer.getPlayerBoard());
+        aiPlayer.setOpponentOcean(humanPlayer.getPlayerBoard());
         
         System.out.println("test");
         humanPlayer.getOcean().printBoard();
         humanPlayer.printOpponentBoard();
-        humanPlayer.playerAttack();
+        humanPlayer.playerAttack(aiPlayer.getOcean().getShips());
         aiPlayer.getOcean().printBoard();
         humanPlayer.printOpponentBoard();
-        humanPlayer.playerAttack();
+        humanPlayer.playerAttack(aiPlayer.getOcean().getShips());
         aiPlayer.getOcean().printBoard();
         humanPlayer.printOpponentBoard();
     }

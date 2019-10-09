@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class HumanPlayer extends Player {
 
@@ -32,12 +33,37 @@ public class HumanPlayer extends Player {
         System.out.println("Unsupported input");
         return getisHorizontal();
     }
-    public boolean playerAttack(){
+    public boolean playerAttack(ArrayList<Ship> ships){
         int[] coordinates = new int[2];
         coordinates = getCooridinates();
         int x = coordinates [0];
         int y = coordinates [1];
-        return attack(x, y);
+        Square cell = opponentBoard[x][y];
+        if (attack(x, y)){
+            isShipDestroyed(cell, ships);
+            return true;
+        }
+        return false;
+    }
+
+    private void isShipDestroyed(Square cell, ArrayList<Ship> ships){
+        int count = 0;
+        for(Ship ship: ships){
+            for (Square element: ship.getShipElements()){
+                if(element == cell){
+                    for(Square shipElement: ship.getShipElements()){
+                        if (shipElement.getCellStatus().equals("hit")){
+                            count++;
+                        }
+                    }
+                    if (count == ship.getShipElements().length){
+                        System.out.println(ship.getName()+" destroyed");
+                    }
+                }
+            }
+        }
+        
+
     }
 
     private void createShips(){
@@ -68,7 +94,7 @@ public class HumanPlayer extends Player {
         for(int x = 0; x < ocean.getBoardLimit(); x++){
             ocean.printXAxis(x);
             for(int y = 0; y < ocean.getBoardLimit(); y++){
-                Square boardSquare = getOpponentOcean()[x][y];
+                Square boardSquare = getOpponentBoard()[x][y];
                     String cellStatus = boardSquare.getCellStatus();
                     if (cellStatus.equals("shippart")){
                         System.out.print(" - ");

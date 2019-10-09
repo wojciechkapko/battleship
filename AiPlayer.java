@@ -14,14 +14,14 @@ public class AiPlayer extends Player {
         this.createShips();
     }
 
-    @Override
-    public void attack(int x, int y){
-        int[] coordinates = new int[2];
-        coordinates = getCooridinates();
-        x = coordinates [0];
-        y = coordinates [1];
-        super.attack(x, y);
-    }
+    // @Override
+    // public void attack(int x, int y){
+    //     int[] coordinates = new int[2];
+    //     coordinates = getCooridinates();
+    //     x = coordinates [0];
+    //     y = coordinates [1];
+    //     super.attack(x, y);
+    // }
 
     public int[] getCooridinates(){
         int x = randomizer.nextInt(ocean.getBoardLimit());
@@ -46,7 +46,7 @@ public class AiPlayer extends Player {
         while(true){
             int[] coordinates = getCooridinates();
             boolean position = getisHorizontal();
-            wasAdded = ocean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+            wasAdded = ocean.addShip(coordinates, shipTypes.get(shipType).intValue(), position, shipType);
             if(wasAdded){
                 break;
             }

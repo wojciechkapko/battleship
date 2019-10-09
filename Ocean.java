@@ -18,6 +18,10 @@ public class Ocean {
         return board;
     }
 
+    public ArrayList<Ship> getShips(){
+        return ships;
+    }
+
     private void initializeBoard(){
         for(int x = 0; x < boardLimit; x++){
             for(int y = 0; y < boardLimit; y++){

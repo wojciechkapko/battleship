@@ -3,14 +3,14 @@ import java.util.Map;
 import java.util.Scanner;
 
 public abstract class Player{
-    protected Square[][] opponentOcean;
+    protected Square[][] opponentBoard;
     protected Ocean ocean;
 
     public Player(){
         ocean = new Ocean();
     }
 
-    public Square[][] getOpponentBoard(){
+    public Square[][] getPlayerBoard(){
         return ocean.getBoard();
     }
 
@@ -18,16 +18,17 @@ public abstract class Player{
         return ocean;
     }
 
-    public Square[][] getOpponentOcean(){
-        return opponentOcean;
+    public Square[][] getOpponentBoard(){
+        return opponentBoard;
     }
+    
 
     public void setOpponentOcean(Square[][] opponentOcean){
-        this.opponentOcean = opponentOcean.clone();
+        this.opponentBoard = opponentOcean.clone();
     }
 
     public boolean attack(int x, int y){
-        Square cell = opponentOcean[x][y];
+        Square cell = opponentBoard[x][y];
         if (cell.getCellStatus().equals("shippart")){
             cell.setCellStatus("hit");
             return true;
