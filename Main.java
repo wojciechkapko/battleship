@@ -5,11 +5,11 @@ public class Main{
         var aiPlayer = new AiPlayer();
         // humanPlayer.getOcean().printBoard();
         // aiPlayer.getOcean().printBoard();
-        humanPlayer.setOpponentOcean(aiPlayer.getOcean());
-        aiPlayer.setOpponentOcean(humanPlayer.getOcean());
+        humanPlayer.setOpponentOcean(aiPlayer.getOpponentBoard());
+        aiPlayer.setOpponentOcean(humanPlayer.getOpponentBoard());
         
         System.out.println("test");
         humanPlayer.getOcean().printBoard();
-        humanPlayer.getOpponentOcean().printBoard();
+        humanPlayer.printOpponentBoard();
     }
 }

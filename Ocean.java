@@ -6,7 +6,6 @@ public class Ocean {
     Square[][] board;
     ArrayList<Ship> ships;
     List<Square> unavailableCells;
-    boolean isPlayerBoard;
 
     Ocean(){
         ships = new ArrayList<Ship>();
@@ -146,20 +145,7 @@ public class Ocean {
             printXAxis(x);
             for(int y = 0; y < boardLimit; y++){
                 Square boardSquare = board[x][y];
-                if (isPlayerBoard){
-                    System.out.print(boardSquare);
-                }
-                else{
-                    String cellStatus = boardSquare.getCellStatus();
-                    if (cellStatus.equals("shippart")){
-                        System.out.print(" - ");
-                    }
-                    else{
-                        System.out.print(boardSquare);
-                    }
-                }
-
-
+                System.out.print(boardSquare);
             }
             System.out.print("\n");
         }
@@ -168,14 +154,14 @@ public class Ocean {
         System.out.println("");
     }
 
-    private void printXAxis(int x){
+    public void printXAxis(int x){
         if (x + 1 == 10)
             System.out.print(x+1 + " ");
         else 
             System.out.print(x+1 + "  ");
     }
 
-    private void printYAxis(){
+    public void printYAxis(){
         System.out.println("  " + "  1  2  3  4  5  6  7  8  9  10  " + "y");
         System.out.println("");
     }

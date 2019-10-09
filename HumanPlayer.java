@@ -64,4 +64,25 @@ public class HumanPlayer extends Player {
                 System.out.println("You cannot place it there.");
         }
     }
+
+    public void printOpponentBoard(){
+        ocean.printYAxis();
+        for(int x = 0; x < ocean.getBoardLimit(); x++){
+            ocean.printXAxis(x);
+            for(int y = 0; y < ocean.getBoardLimit(); y++){
+                Square boardSquare = getOpponentOcean()[x][y];
+                    String cellStatus = boardSquare.getCellStatus();
+                    if (cellStatus.equals("shippart")){
+                        System.out.print(" - ");
+                    }
+                    else{
+                        System.out.print(boardSquare);
+                    }
+            }
+            System.out.print("\n");
+        }
+        System.out.println("");
+        System.out.println("x");
+        System.out.println("");
+    }
 }
