@@ -34,12 +34,7 @@ public class HumanPlayer extends Player {
     }
 
     private void createShips(){
-        Map<String, Integer> shipTypes = new HashMap<>();
-        shipTypes.put("Carrier", 5);
-        shipTypes.put("Battleship", 4);
-        shipTypes.put("Cruiser", 3);
-        shipTypes.put("Submarine", 3);
-        shipTypes.put("Destroyer", 2);
+        Map<String, Integer> shipTypes = Settings.getShipTypes();
         ocean.printBoard();
         for(String shipType: shipTypes.keySet()){
             createSingleShip(shipType, shipTypes);

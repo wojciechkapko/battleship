@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Player{
+public abstract class Player{
     protected Ocean opponentOcean;
     protected Ocean ocean;
 

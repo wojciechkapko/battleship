@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AiPlayer extends Player {
 
     // private int difficulty;
-    protected Random randomizer;
+    private Random randomizer;
 
     public AiPlayer(){
         // this.difficulty = difficulty;
@@ -24,13 +24,9 @@ public class AiPlayer extends Player {
     public boolean getisHorizontal(){
         return randomizer.nextInt(2) != 0;
     }
+
     private void createShips(){
-        Map<String, Integer> shipTypes = new HashMap<>();
-        shipTypes.put("Carrier", 5);
-        shipTypes.put("Battleship", 4);
-        shipTypes.put("Cruiser", 3);
-        shipTypes.put("Submarine", 3);
-        shipTypes.put("Destroyer", 2);
+        Map<String, Integer> shipTypes = Settings.getShipTypes();
         for(String shipType: shipTypes.keySet()){
             createSingleShip(shipType, shipTypes);
         }
