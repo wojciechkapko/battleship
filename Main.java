@@ -1,8 +1,8 @@
 public class Main{
     public static void main(String[] args){
         
-        var humanPlayer = new HumanPlayer();
-        var aiPlayer = new AiPlayer();
+        HumanPlayer humanPlayer = new HumanPlayer();
+        AiPlayer aiPlayer = new AiPlayer();
         // humanPlayer.getOcean().printBoard();
         // aiPlayer.getOcean().printBoard();
         humanPlayer.setOpponentOcean(aiPlayer.getOpponentBoard());
@@ -10,6 +10,12 @@ public class Main{
         
         System.out.println("test");
         humanPlayer.getOcean().printBoard();
+        humanPlayer.printOpponentBoard();
+        humanPlayer.playerAttack();
+        aiPlayer.getOcean().printBoard();
+        humanPlayer.printOpponentBoard();
+        humanPlayer.playerAttack();
+        aiPlayer.getOcean().printBoard();
         humanPlayer.printOpponentBoard();
     }
 }

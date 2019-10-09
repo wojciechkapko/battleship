@@ -32,14 +32,12 @@ public class HumanPlayer extends Player {
         System.out.println("Unsupported input");
         return getisHorizontal();
     }
-
-    @Override
-    public void attack(int x, int y){
+    public void playerAttack(){
         int[] coordinates = new int[2];
         coordinates = getCooridinates();
-        x = coordinates [0];
-        y = coordinates [1];
-        super.attack(x, y);
+        int x = coordinates [0];
+        int y = coordinates [1];
+        attack(x, y);
     }
 
     private void createShips(){
