@@ -33,6 +33,15 @@ public class HumanPlayer extends Player {
         return getisHorizontal();
     }
 
+    @Override
+    public void attack(int x, int y){
+        int[] coordinates = new int[2];
+        coordinates = getCooridinates();
+        x = coordinates [0];
+        y = coordinates [1];
+        super.attack(x, y);
+    }
+
     private void createShips(){
         Map<String, Integer> shipTypes = Settings.getShipTypes();
         ocean.printBoard();

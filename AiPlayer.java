@@ -14,6 +14,15 @@ public class AiPlayer extends Player {
         this.createShips();
     }
 
+    @Override
+    public void attack(int x, int y){
+        int[] coordinates = new int[2];
+        coordinates = getCooridinates();
+        x = coordinates [0];
+        y = coordinates [1];
+        super.attack(x, y);
+    }
+
     public int[] getCooridinates(){
         int x = randomizer.nextInt(ocean.getBoardLimit());
         int y = randomizer.nextInt(ocean.getBoardLimit());

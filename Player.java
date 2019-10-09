@@ -9,6 +9,7 @@ public abstract class Player{
     public Player(){
         opponentOcean = new Ocean();
         ocean = new Ocean();
+        ocean.isPlayerBoard = true;
     }
 
     public Ocean getOcean(){
@@ -17,5 +18,16 @@ public abstract class Player{
 
     public void setOpponentOcean(Ocean opponentOcean){
         this.opponentOcean = opponentOcean;
+        opponentOcean.isPlayerBoard = false;
+    }
+
+    public void attack(int x, int y){
+        Square cell = opponentOcean.getBoard()[x][y];
+        if (cell.getCellStatus().equals("shippart")){
+            cell.setCellStatus("hit");
+        }
+        else{
+            cell.setCellStatus("miss");
+        }
     }
 }

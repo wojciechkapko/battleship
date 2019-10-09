@@ -30,7 +30,7 @@ public class Square {
         return cellStatus.equals("shippart");
     }
 
-    public String getCellstatus(){
+    public String getCellStatus(){
         return cellStatus;
     }
 
