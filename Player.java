@@ -26,13 +26,15 @@ public abstract class Player{
         this.opponentOcean = opponentOcean.clone();
     }
 
-    public void attack(int x, int y){
+    public boolean attack(int x, int y){
         Square cell = opponentOcean[x][y];
         if (cell.getCellStatus().equals("shippart")){
             cell.setCellStatus("hit");
+            return true;
         }
         else{
             cell.setCellStatus("miss");
+            return false;
         }
     }
 }

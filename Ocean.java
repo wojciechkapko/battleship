@@ -26,7 +26,7 @@ public class Ocean {
         }
     }
 
-    public boolean addShip(int[] coordinates, int length, boolean isHorizontal){
+    public boolean addShip(int[] coordinates, int length, boolean isHorizontal, String name){
         Square[] shipElements = new Square[length];
         int x = coordinates[0];
         int y = coordinates[1];
@@ -41,7 +41,7 @@ public class Ocean {
             createHorizontalShip(x, y, length, shipElements);
         else
             createVerticalShip(x, y, length, shipElements);
-        Ship ship = new Ship(shipElements);
+        Ship ship = new Ship(shipElements, name);
 
         updateUnavailableCells(shipElements);
         ships.add(ship);

@@ -32,12 +32,12 @@ public class HumanPlayer extends Player {
         System.out.println("Unsupported input");
         return getisHorizontal();
     }
-    public void playerAttack(){
+    public boolean playerAttack(){
         int[] coordinates = new int[2];
         coordinates = getCooridinates();
         int x = coordinates [0];
         int y = coordinates [1];
-        attack(x, y);
+        return attack(x, y);
     }
 
     private void createShips(){
@@ -55,7 +55,7 @@ public class HumanPlayer extends Player {
         while(true){
             int[] coordinates = getCooridinates();
             boolean position = getisHorizontal();
-            wasAdded = ocean.addShip(coordinates, shipTypes.get(shipType).intValue(), position);
+            wasAdded = ocean.addShip(coordinates, shipTypes.get(shipType).intValue(), position, shipType);
             if(wasAdded)
                 break;
             else
