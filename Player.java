@@ -16,6 +16,10 @@ public abstract class Player{
         return ocean;
     }
 
+    public Ocean getOpponentOcean(){
+        return opponentOcean;
+    }
+
     public void setOpponentOcean(Ocean opponentOcean){
         this.opponentOcean = opponentOcean;
         opponentOcean.isPlayerBoard = false;

@@ -150,7 +150,7 @@ public class Ocean {
                     System.out.print(boardSquare);
                 }
                 else{
-                    String cellStatus = boardSquare.toString();
+                    String cellStatus = boardSquare.getCellStatus();
                     if (cellStatus.equals("shippart")){
                         System.out.print(" - ");
                     }
