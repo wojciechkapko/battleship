@@ -37,7 +37,7 @@ public abstract class Player{
 
     public boolean attack(int x, int y){
         Square cell = opponentBoard[x][y];
-        if (cell.getCellStatus().equals("shippart")){
+        if (cell.getCellStatus().equals("shippart") || cell.getCellStatus().equals("hit")) {
             cell.setCellStatus("hit");
             return true;
         }
