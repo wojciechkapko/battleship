@@ -27,7 +27,8 @@ public class GameCvC {
             player1Won = TurnLogic.playTurn(player1, player2Ships);
             player2Won = TurnLogic.playTurn(player2, player1Ships);
         }
-
+        player1.getOcean().printBoard();
+        player2.getOcean().printBoard();
         if(player1Won){
             System.out.println("Player1 won!");
         } else {
