@@ -1,6 +1,6 @@
 public class Main{
     public static void main(String[] args){
-        GamePvC newGame = new GamePvC();
+        GameCvC newGame = new GameCvC();
         newGame.play();
     }
 }

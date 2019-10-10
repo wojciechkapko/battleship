@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class GamePvC{
+public class GamePvC {
     Player player1;
     Player player2;
     // int gameDifficulty;
