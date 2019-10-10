@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,30 @@ public class HumanPlayer extends Player {
     }
 
     public int[] getCooridinates(){
-        System.out.print("X: ");
-        int x = scanner.nextInt() - 1;
-        System.out.print("Y: ");
-        int y = scanner.nextInt() - 1;
+        int x = getCoordinate("X: ");
+        int y = getCoordinate("Y: ");
         int[] coordinates = {x, y};
         return coordinates;
     }
+
+    private int getCoordinate(String prompt) {
+        System.out.print(prompt);
+        String x = scanner.next();
+        int coordinate = 0;
+        try {
+            coordinate = Integer.parseInt(x);
+            if(coordinate > 10 || coordinate < 1 ){
+                System.out.println("Invalid input");
+                getCoordinate(prompt);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input");
+            getCoordinate(prompt);
+        }
+
+        return coordinate-1;
+    }
+
     public boolean getisHorizontal(){
         System.out.println("1. Horizontal");
         System.out.println("2. Vertical");
@@ -47,6 +65,15 @@ public class HumanPlayer extends Player {
         int x = coordinates [0];
         int y = coordinates [1];
         Square cell = opponentBoard[x][y];
+
+        while(cell.getCellStatus().equals("miss") || cell.getCellStatus().equals("hit")){
+            System.out.println("You have already attacked this coordinate.");
+            coordinates = getCooridinates();
+            x = coordinates [0];
+            y = coordinates [1];
+            cell = opponentBoard[x][y];
+        }
+
         if (attack(x, y)){
             isShipDestroyed(cell, ships);
             return true;

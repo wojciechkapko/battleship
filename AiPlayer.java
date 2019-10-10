@@ -35,6 +35,14 @@ public class AiPlayer extends Player {
         int x = coordinates [0];
         int y = coordinates [1];
         Square cell = opponentBoard[x][y];
+
+        while(cell.getCellStatus().equals("miss") || cell.getCellStatus().equals("hit")){
+            coordinates = getCooridinates();
+            x = coordinates [0];
+            y = coordinates [1];
+            cell = opponentBoard[x][y];
+        }
+        
         if (attack(x, y)){
             return true;
         }
