@@ -24,7 +24,7 @@ public class HumanPlayer extends Player {
 
     private int getCoordinate(String prompt) {
         System.out.print(prompt);
-        String x = scanner.next();
+        String x = scanner.next().strip();
         int coordinate = 0;
         try {
             coordinate = Integer.parseInt(x);
