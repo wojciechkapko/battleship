@@ -33,7 +33,5 @@ public class GameCvC {
         } else {
             System.out.println("Player2 won!");
         }
-        player1.getOcean().printBoard();
-        player2.getOcean().printBoard();
     }
 }

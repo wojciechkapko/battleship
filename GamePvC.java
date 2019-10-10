@@ -24,12 +24,9 @@ public class GamePvC {
             System.out.println("Game started\n");
             player1.getOcean().printBoard();
             player1.printOpponentBoard();
-            System.out.println("Tip:\n");
-            player2.getOcean().printBoard();
             player1Won = TurnLogic.playTurn(player1, player2Ships);
             player2Won = TurnLogic.playTurn(player2, player1Ships);
         }
-
         if(player1Won){
             System.out.println("You won!");
         } else {
