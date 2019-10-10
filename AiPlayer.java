@@ -2,6 +2,8 @@ import java.util.Random;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AiPlayer extends Player {
 
@@ -22,6 +24,22 @@ public class AiPlayer extends Player {
     //     y = coordinates [1];
     //     super.attack(x, y);
     // }
+
+    public void shoot(List<Ship> ships) {
+        playerAttack(ships);
+    }
+
+    public boolean playerAttack(List<Ship> ships){
+        int[] coordinates = new int[2];
+        coordinates = getCooridinates();
+        int x = coordinates [0];
+        int y = coordinates [1];
+        Square cell = opponentBoard[x][y];
+        if (attack(x, y)){
+            return true;
+        }
+        return false;
+    }
 
     public int[] getCooridinates(){
         int x = randomizer.nextInt(ocean.getBoardLimit());
@@ -51,5 +69,9 @@ public class AiPlayer extends Player {
                 break;
             }
         }
+    }
+
+    public void printOpponentBoard(){
+
     }
 }

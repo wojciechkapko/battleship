@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class HumanPlayer extends Player {
 
@@ -33,7 +35,13 @@ public class HumanPlayer extends Player {
         System.out.println("Unsupported input");
         return getisHorizontal();
     }
-    public boolean playerAttack(ArrayList<Ship> ships){
+
+
+    public void shoot(List<Ship> ships) {
+        playerAttack(ships);
+    }
+
+    public boolean playerAttack(List<Ship> ships){
         int[] coordinates = new int[2];
         coordinates = getCooridinates();
         int x = coordinates [0];
@@ -46,7 +54,7 @@ public class HumanPlayer extends Player {
         return false;
     }
 
-    private void isShipDestroyed(Square cell, ArrayList<Ship> ships){
+    private void isShipDestroyed(Square cell, List<Ship> ships){
         int count = 0;
         for(Ship ship: ships){
             for (Square element: ship.getShipElements()){

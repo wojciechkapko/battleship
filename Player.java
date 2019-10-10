@@ -1,6 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class Player{
     protected Square[][] opponentBoard;
@@ -26,6 +29,11 @@ public abstract class Player{
     public void setOpponentOcean(Square[][] opponentOcean){
         this.opponentBoard = opponentOcean.clone();
     }
+
+
+    public abstract void shoot(List<Ship> ships);
+
+    public abstract void printOpponentBoard();
 
     public boolean attack(int x, int y){
         Square cell = opponentBoard[x][y];
