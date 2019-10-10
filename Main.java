@@ -10,11 +10,11 @@ public class Main{
     private static void menu(){
         String input = "";
         while (!(input.equals("0"))){
-            System.out.println("Welcome");
-            System.out.println("1. Game: Player vs. Computer");
-            System.out.println("2. Game: Player vs. Player");
+            System.out.println("Ahoy!");
+            System.out.println("1. Game: Pirate vs. Computer");
+            System.out.println("2. Game: Pirate vs. Pirate");
             System.out.println("3. Game: Computer vs. Computer");
-            System.out.println("\nPress 0 to quit.");
+            System.out.println("\nPress 0 to disembark, landlubber!");
             
             input = scan.next();
 
@@ -34,7 +34,7 @@ public class Main{
                     newGameCvC.play();
                     break;
                 default:
-                System.out.println("Invalid input!");
+                System.out.println("Blimey! I dont understand, Did ye have too much rum?");
 
             }
         }

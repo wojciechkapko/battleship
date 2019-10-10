@@ -16,6 +16,9 @@ public class HumanPlayer extends Player {
     }
 
     public int[] getCooridinates(){
+        System.out.println("---------------------------");
+        System.out.println("Input coordinates:");
+        System.out.println("---------------------------");
         int x = getCoordinate("X: ");
         int y = getCoordinate("Y: ");
         int[] coordinates = {x, y};
@@ -29,11 +32,11 @@ public class HumanPlayer extends Player {
         try {
             coordinate = Integer.parseInt(x);
             if(coordinate > 10 || coordinate < 1 ){
-                System.out.println("Invalid input");
+                System.out.println("Blimey! I dont understand, Did ye have too much rum?");
                 getCoordinate(prompt);
             }
         } catch (NumberFormatException e) {
-            System.out.println("Invalid input");
+            System.out.println("Blimey! I dont understand, Did ye have too much rum?");
             getCoordinate(prompt);
         }
 
@@ -50,12 +53,13 @@ public class HumanPlayer extends Player {
         else if (decision == 2){
             return false;
         }
-        System.out.println("Unsupported input");
+        System.out.println("Sail ho! I dont understand, Did ye have too much rum?");
         return getisHorizontal();
     }
 
 
     public void shoot(List<Ship> ships) {
+        System.out.println("Alas! Aim thee cannons!");
         playerAttack(ships);
     }
 
@@ -67,7 +71,7 @@ public class HumanPlayer extends Player {
         Square cell = opponentBoard[x][y];
 
         while(cell.getCellStatus().equals("miss") || cell.getCellStatus().equals("hit")){
-            System.out.println("You have already attacked this coordinate.");
+            System.out.println("Alas! We hav alreeady attacked this coordinate.");
             coordinates = getCooridinates();
             x = coordinates [0];
             y = coordinates [1];
@@ -75,9 +79,11 @@ public class HumanPlayer extends Player {
         }
 
         if (attack(x, y)){
+            System.out.println("\nArr! We got them\n");
             isShipDestroyed(cell, ships);
             return true;
         }
+        System.out.println("\nBlimey! we missed!\n");
         return false;
     }
 
@@ -111,7 +117,7 @@ public class HumanPlayer extends Player {
     }
 
     private void createSingleShip(String shipType, Map<String, Integer> shipTypes){
-        System.out.println("Creating " + shipType);
+        System.out.println("Arr! Direct thee " + shipType + " (Size - " + shipTypes.get(shipType) + ")");
         boolean wasAdded;
         while(true){
             int[] coordinates = getCooridinates();
@@ -120,7 +126,7 @@ public class HumanPlayer extends Player {
             if(wasAdded)
                 break;
             else
-                System.out.println("You cannot place it there.");
+                System.out.println("No quarter! Ye cannot haven it thar.");
         }
     }
 

@@ -19,9 +19,8 @@ public class GameCvC {
         player2.setOpponentOcean(player1.getPlayerBoard());
         boolean player1Won = false;
         boolean player2Won = false;
-
+        System.out.println("Look out! Battle commences!\n");
         while(!(player1Won || player2Won)){
-            System.out.println("Game started\n");
             player1.getOcean().printBoard();
             player2.getOcean().printBoard();
             player1Won = TurnLogic.playTurn(player1, player2Ships);
@@ -30,9 +29,9 @@ public class GameCvC {
         player1.getOcean().printBoard();
         player2.getOcean().printBoard();
         if(player1Won){
-            System.out.println("Player1 won!");
+            System.out.println("Computer1 won!");
         } else {
-            System.out.println("Player2 won!");
+            System.out.println("Computer2 won!");
         }
     }
 }
